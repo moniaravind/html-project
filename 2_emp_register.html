@@ -1,0 +1,73 @@
+<html>
+<head>
+<style>
+</style>
+</head>
+<body><center>
+	<h1>
+	<b>Most Important Bank</b>
+	</h1>
+	<h2>
+	<i>Employee Registration</i>
+	</h2>
+	<form action="" method="get" class="form">
+	<div class = "form">
+  		<label for="EmployeeID">Employee ID</label>
+  		<input id="EmployeeID" type="EmployeeID" maxlength="7" />
+	</div>
+	<div class = "form">
+  		<label for="FirstName">First Name</label>
+  		<input id="FirstName" type="FirstName" maxlength="50" />
+	</div>
+	<div class = "form">
+ 		<label for="LastName">Last Name</label>
+  		<input id="LastName" type="LastName" maxlength="50" />
+	</div>
+	<div class = "form">
+  		<label for="email">Email</label>
+  		<input id="email" type="email" maxlength="50" />
+	</div>
+	<div class = "form">
+  		<label for="Password">Password</label>
+  		<input id="Password" type="Password" minlength="8" maxlength="50" />
+	</div>
+	<div class = "form">
+  		<label for="CPassword">Confirm Password</label>
+  		<input id="CPassword" type="Password" minlength="8" maxlength="50"/>
+	</div>
+	<div class = "form">
+  		<label for="Address">Address</label>
+  		<input id="Address" type="Address" maxlength="100" />
+	</div>
+	<div class = "form">
+  		<label for="CNumber">Contact Number</label>
+  		<input id="CNumber" type="CNumber" maxlength="10" />
+	</div>
+	</form>
+	<div class = "alertsuccess">
+	<button onclick="savedetails()"><a href = "1_login_register.html">Register</a></button>
+	<div>
+</center>
+</body>
+<script>
+
+	function savedetails(){
+		let EmployeeID = document.getElementById('EmployeeID').value;
+		let FirstName = document.getElementById('FirstName').value;
+		let LastName = document.getElementById('LastName').value;
+		let email = document.getElementById('email').value;
+		let Password = document.getElementById('Password').value;
+		let Address = document.getElementById('Address').value;
+		let CNumber = document.getElementById('CNumber').value;
+		localStorage.setItem('EmployeeID',EmployeeID);
+		localStorage.setItem('FirstName',FirstName);
+		localStorage.setItem('LastName',LastName);
+		localStorage.setItem('email',email);
+		localStorage.setItem('Password',Password);
+		localStorage.setItem('Address',Address);
+		localStorage.setItem('CNumber',CNumber);
+		location.href ="C:/Users/Monia/OneDrive/Desktop/HTML/1_login_register.html";
+		alert("Employee Registration Sucessful");
+}
+</script>
+</html>

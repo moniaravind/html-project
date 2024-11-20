@@ -1,0 +1,40 @@
+<html>
+<head>
+<script>
+function checkpass() {
+	let id = document.getElementById("EmpID").value;
+	let password = document.getElementById("LogPassword").value;
+	const EmployeeID = localStorage.getItem("EmployeeID");
+	const Password = localStorage.getItem("Password");
+	console.log(id,password,EmployeeID,Password);
+	if(password != Password || EmployeeID !=id) {
+		alert("Invalid User ID or Password");
+	} else {
+		alert("Logged in Sucessfully");
+		window.location.href = "3_loggedin_homepage.html"
+	}
+}
+</script>
+</head>
+<body>
+<center>
+	<h1>
+		<b>Most Important Bank</b>
+	</h1>
+	<h2>
+		<i>Welcome Back!</i>
+	</h2>
+	<div  class="form">
+		<label for="EmpID">Employee ID</label>
+		<input id="EmpID" type="EmpID" maxlength="7" />
+	</div>
+	<div class = "form">
+		<label for="LogPassword">Password</label>
+		<input id="LogPassword" type="LogPassword" minlength="8" maxlength="50" />
+	</div>
+		<button onClick="checkpass()">Login</button>
+		<button><a href = "2_emp_register.html"> New User? (Register) </a></button>
+	</div>
+</center>
+</body>
+</html>

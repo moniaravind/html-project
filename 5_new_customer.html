@@ -1,0 +1,122 @@
+<html>
+<head>
+</head>
+<body>
+    <center>
+        <h1><b>Most Important Bank</b></h1>
+        <h2><i>New Customer Registration</i></h2>
+        
+        <form action="" method="get" class="form">
+            <div class="form">
+                <label for="SSNID">Customer SSN ID</label>
+                <input id="SSNID" type="text" maxlength="7" />
+            </div>
+            <div class="form">
+                <label for="FirstName">First Name</label>
+                <input id="FirstName" type="text" maxlength="50" />
+            </div>
+            <div class="form">
+                <label for="LastName">Last Name</label>
+                <input id="LastName" type="text" maxlength="50" />
+            </div>
+            <div class="form">
+                <label for="AccountNumber">Account Number</label>
+                <input id="AccountNumber" type="number" maxlength="12" />
+            </div>
+            <div class="form">
+                <label for="IFSC">IFSC Code</label>
+                <input id="IFSC" type="text" maxlength="9" />
+            </div>
+            <div class="form">
+                <label for="AccountBalance">Account Balance</label>
+                <input id="AccountBalance" type="number" maxlength="15" />
+            </div>
+            <div class="form">
+                <label for="Aadhaar">Aadhaar Number</label>
+                <input id="Aadhaar" type="number" maxlength="12" />
+            </div>
+            <div class="form">
+                <label for="PAN">PAN Card ID</label>
+                <input id="PAN" type="text" maxlength="10" />
+            </div>
+            <div class="form">
+                <label for="DOB">Date of Birth</label>
+                <input id="DOB" type="date"/>
+            </div>
+            <div class="form">
+                <label for="Gender">Gender</label>
+                <select name="Gender" id="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="NA">Prefer Not to Say</option>
+                </select>
+            </div>
+            <div class="form">
+                <label for="MStatus">Marital Status</label>
+                <select name="MStatus" id="MStatus">
+                    <option value="Married">Married</option>
+                    <option value="Unmarried">Unmarried</option>
+                    <option value="Divorced">Divorced</option>
+                </select>
+            </div>
+            <div class="form">
+                <label for="email">Email</label>
+                <input id="email" type="email" maxlength="50" />
+            </div>
+            <div class="form">
+                <label for="Address">Address</label>
+                <input id="Address" type="text" maxlength="100" />
+            </div>
+            <div class="form">
+                <label for="CNumber">Contact Number</label>
+                <input id="CNumber" type="text" maxlength="10" />
+            </div>
+        </form>
+        <!-- Corrected the button to directly trigger the save function -->
+        <button onclick="savecustomerdetails()">Register</button>
+    </center>
+
+    <script>
+        function savecustomerdetails(){
+            let SSNID = document.getElementById('SSNID').value;
+            let FirstName = document.getElementById('FirstName').value;
+            let LastName = document.getElementById('LastName').value;
+            let AccountNumber = document.getElementById('AccountNumber').value;
+            let IFSC = document.getElementById('IFSC').value;
+            let AccountBalance = document.getElementById('AccountBalance').value;
+            let Aadhaar = document.getElementById('Aadhaar').value;
+            let PAN = document.getElementById('PAN').value;
+            let DOB = document.getElementById('DOB').value;
+            let Gender = document.getElementById('Gender').value;
+            let MStatus = document.getElementById('MStatus').value;
+            let email = document.getElementById('email').value;
+            let Address = document.getElementById('Address').value;
+            let CNumber = document.getElementById('CNumber').value;
+
+            // Save customer details to localStorage
+            let customer = {
+                SSNID: SSNID,
+                FirstName: FirstName,
+                LastName: LastName,
+                AccountNumber: AccountNumber,
+                IFSC: IFSC,
+                AccountBalance: AccountBalance,
+                Aadhaar: Aadhaar,
+                PAN: PAN,
+                DOB: DOB,
+                Gender: Gender,
+                MStatus: MStatus,
+                email: email,
+                Address: Address,
+                CNumber: CNumber
+            };
+
+            localStorage.setItem('customerData', JSON.stringify(customer));
+            alert("Customer Registration Successful");
+
+            // Redirect to login page
+            window.location.href = "4_customer_info.html";
+        }
+    </script>
+</body>
+</html>

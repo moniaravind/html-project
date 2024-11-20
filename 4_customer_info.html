@@ -1,0 +1,29 @@
+<html>
+<head>
+<script>
+function checkSSNID() {
+    const enteredSSNID = document.getElementById("CSSNID").value;
+    const storedCustomer = JSON.parse(localStorage.getItem("customerData"));
+
+    if (!storedCustomer || storedCustomer.SSNID !== enteredSSNID) {
+        alert("Invalid Customer ID");
+    } else {
+        alert("Logged in Successfully");
+        window.location.href = "C:/Users/Monia/OneDrive/Desktop/HTML/6_customer_show.html";
+    }
+}
+</script>
+</head>
+<body>
+    <center>
+        <h1><b>Most Important Bank</b></h1>
+        <h2><i>Customer Information</i></h2>
+        <div class="form">
+            <label for="CSSNID">Customer's SSN ID</label>
+            <input id="CSSNID" type="text" maxlength="7" />
+            <button onClick="checkSSNID()">Login</button>
+            <button><a href="5_new_customer.html">New User? (Register)</a></button>
+        </div>
+    </center>
+</body>
+</html>

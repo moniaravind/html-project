@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>Customer Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .customer-details {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f9f9f9;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Details</h1>
+        <div id="customerDetails" class="customer-details"></div>
+        <button onclick="editCustomer()">Edit</button>
+        <button onclick="deleteCustomer()">Delete</button>
+    </div>
+
+    <script>
+        // Function to display customer details
+        function displayCustomerDetails() {
+            const customer = JSON.parse(localStorage.getItem('customerData'));
+
+            if (customer) {
+                const detailsDiv = document.getElementById('customerDetails');
+                detailsDiv.innerHTML = `
+                    <p><b>SSN ID:</b> ${customer.SSNID}</p>
+                    <p><b>Name:</b> ${customer.FirstName} ${customer.LastName}</p>
+                    <p><b>Account Number:</b> ${customer.AccountNumber}</p>
+                    <p><b>IFSC Code:</b> ${customer.IFSC}</p>
+                    <p><b>Account Balance:</b> ${customer.AccountBalance}</p>
+                    <p><b>Aadhaar Number:</b> ${customer.Aadhaar}</p>
+                    <p><b>PAN Card ID:</b> ${customer.PAN}</p>
+                    <p><b>Date of Birth:</b> ${customer.DOB}</p>
+                    <p><b>Gender:</b> ${customer.Gender}</p>
+                    <p><b>Marital Status:</b> ${customer.MStatus}</p>
+                    <p><b>Email:</b> ${customer.email}</p>
+                    <p><b>Address:</b> ${customer.Address}</p>
+                    <p><b>Contact Number:</b> ${customer.CNumber}</p>
+                `;
+            } else {
+                alert("No customer details found!");
+            }
+        }
+
+        // Function to edit customer details
+        function editCustomer() {
+            const customer = JSON.parse(localStorage.getItem('customerData'));
+
+            if (customer) {
+                // Prompt for new details
+                customer.FirstName = prompt("Enter new First Name:", customer.FirstName);
+                customer.LastName = prompt("Enter new Last Name:", customer.LastName);
+                customer.AccountBalance = prompt("Enter new Account Balance:", customer.AccountBalance);
+                customer.Address = prompt("Enter new Address:", customer.Address);
+                customer.CNumber = prompt("Enter new Contact Number:", customer.CNumber);
+
+                // Update localStorage with new data
+                localStorage.setItem('customerData', JSON.stringify(customer));
+                alert("Customer details updated successfully!");
+
+                // Refresh displayed details
+                displayCustomerDetails();
+            }
+        }
+
+        // Function to delete customer details
+        function deleteCustomer() {
+            if (confirm("Are you sure you want to delete customer details?")) {
+                localStorage.removeItem('customerData');
+                alert("Customer details deleted successfully!");
+                document.getElementById('customerDetails').innerHTML = "Customer details have been deleted.";
+            }
+        }
+
+        // Display customer details on page load
+        window.onload = displayCustomerDetails;
+    </script>
+</body>
+</html>
